@@ -9,7 +9,7 @@ LIST_OF_MULTIPE_FIELDS=[
         "UF_CRM_1663688692420"
     ]
 
-@app.route("/flask", methods=["GET"])
+@app.route("/", methods=["GET"])
 def addLead():
     params = flask.request.json
     listOfMultipleKeys = LIST_OF_MULTIPE_FIELDS
@@ -40,3 +40,6 @@ def addLead():
 
 if __name__ == '__main__':
     app.run(debug=True)
+    from waitress import serve
+    serve(app, host="0.0.0.0", port=8080)
+    
