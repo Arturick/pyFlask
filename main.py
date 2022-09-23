@@ -11,7 +11,6 @@ LIST_OF_MULTIPE_FIELDS=[
 
 @app.route("/", methods=["GET"])
 def addLead():
-    print(1)
     params = flask.request.json
     listOfMultipleKeys = LIST_OF_MULTIPE_FIELDS
     # ***
@@ -41,5 +40,5 @@ def addLead():
 
 if __name__ == '__main__':
     app.run(debug=True)
-    print(1)
-    
+    from waitress import serve
+    serve(app, host="0.0.0.0", port=8080)
